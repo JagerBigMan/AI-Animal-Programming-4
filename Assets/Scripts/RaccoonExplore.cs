@@ -1,4 +1,5 @@
 using NodeCanvas.Framework;
+using ParadoxNotion.Design;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,9 +8,20 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class RaccoonExplore : ActionTask 
 		{
-		public float exploreRadius;
+		public float exploreRadius = 5f;
+		public float arriveDistance = 0.5f;
+
+		public float minExploreTime = 5f;
+		public float maxExploreTime = 10f;
+
+		private float exploreTimer;
+		private float exploreDuration;
 
 		private NavMeshAgent navAgent;
+		private Vector3 targetPosition;
+
+		private Vector3 minBounds = new Vector3(-20f, 0f, -20f);
+		private Vector3 maxBounds = new Vector3(20f, 0f, 20f);
 
 		protected override string OnInit() 
 		{
@@ -17,28 +29,38 @@ namespace NodeCanvas.Tasks.Actions {
 			return null;
 		}
 
-		protected override void OnExecute() {
-			Vector3 randomPoint = Random.insideUnitSphere * exploreRadius + agent.transform.position;
+		protected override void OnExecute()
+		{
+			exploreTimer = 0f;
+			exploreDuration = Random.Range(minExploreTime, maxExploreTime);
 
-			NavMeshHit navHit;
-			if (!NavMesh.SamplePosition(randomPoint, out navHit, exploreRadius, NavMesh.AllAreas))
-			{
-				return;
-			}
-
-			navAgent.SetDestination(navHit.position);
-
-
-
+			AssignNewTarget();
 		}
-
 
 		protected override void OnUpdate() 
 		{
-			if(navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
+			if (exploreTimer >= exploreDuration)
 			{
-				EndAction(true);
+				exploreTimer = 0f;
+				exploreDuration = Random.Range(minExploreTime, maxExploreTime);
+				AssignNewTarget();
 			}
+			if (navAgent.pathPending)
+			{
+				return;
+			}
+			if (navAgent.remainingDistance <= arriveDistance)
+			{
+				AssignNewTarget();
+			}
+		}
+		private void AssignNewTarget()
+		{
+			float x = Random.Range(minBounds.x, maxBounds.x);
+			float z = Random.Range(minBounds.z, maxBounds.z);
+
+			targetPosition = new Vector3(x, agent.transform.position.y, z);
+			navAgent.SetDestination(targetPosition);
 		}
 
 		protected override void OnStop() {
