@@ -36,7 +36,6 @@ namespace NodeCanvas.Tasks.Actions
 
             if (!raccoonAudio.isPlaying)        //Starts playback only if not already playing, prevents restart spam
                 raccoonAudio.Play();
-            EndAction(true);
         }
 
         protected override void OnUpdate()
