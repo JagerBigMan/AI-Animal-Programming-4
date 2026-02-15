@@ -441,6 +441,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &322331943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322331945}
+  - component: {fileID: 322331944}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &322331944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322331943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dea69a1b3130b046b95c562c13925ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMasterVolume: 1
+  _defaultMusicVolume: 0
+  _defaultEffectsVolume: 0
+  Sounds:
+  - name: Explore
+    clip: {fileID: 8300000, guid: af81d8663ddfb39459ed8ff86d72e96a, type: 3}
+    volume: 1
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
+    type: 0
+  - name: Idle
+    clip: {fileID: 8300000, guid: ebe300f5899b0ea4b96c1c4d199820fd, type: 3}
+    volume: 1
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
+    type: 0
+  - name: Observe
+    clip: {fileID: 8300000, guid: bedb434053d81fb44bcaa5b0e96dee73, type: 3}
+    volume: 1
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
+    type: 0
+  - name: Flee
+    clip: {fileID: 8300000, guid: 3e17b71be18c914488a6a47d3d1a2d1d, type: 3}
+    volume: 1
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
+    type: 0
+  - name: Hide
+    clip: {fileID: 8300000, guid: 19a4a413cd1a6cd4ea4e96299d60f549, type: 3}
+    volume: 0.75
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
+    type: 0
+  SoundVariants: []
+--- !u!4 &322331945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322331943}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.799996, y: -3.0770373, z: -9.610073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &449821683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,17 +2647,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"exploreLoop":1,"$type":"NodeCanvas.Tasks.Actions.StartExploreAudio"},{"minExploreTime":2.0,"maxExploreTime":5.0,"$type":"NodeCanvas.Tasks.Actions.RaccoonExplore"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Explore","_position":{"x":667.0,"y":333.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"minIdleTime":3.0,"maxIdleTime":6.0,"bodyRenderer":2,"$type":"NodeCanvas.Tasks.Actions.RaccoonIdleAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":931.0,"y":207.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"observeColor":{"r":0.9433962,"g":0.3507259,"b":0.1557494,"a":1.0},"bodyRenderer":2,"$type":"NodeCanvas.Tasks.Actions.RaccoonObserveAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Observe","_position":{"x":1023.0,"y":523.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"fleeDistance":25.0,"fleeSpeed":10.0,"safeDistance":18.0,"bodyRenderer":2,"$type":"NodeCanvas.Tasks.Actions.FleeAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Flee","_position":{"x":1316.207,"y":344.9712},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[{"bodyRenderer":2,"$type":"NodeCanvas.Tasks.Actions.RaccoonHideAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Hide","_position":{"x":1412.588,"y":196.2552},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Flee","_position":{"x":86.0,"y":318.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"detectionLayerMask":{"value":64},"detectionRadius":15.0,"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"$type":"NodeCanvas.Tasks.Actions.DetectAT"}]},"_position":{"x":402.0,"y":99.33312},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"$type":"NodeCanvas.Tasks.Conditions.IsDetectedCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"$type":"NodeCanvas.Tasks.Conditions.IsDetectedCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.IsDetectedCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"triggerDistance":10.0,"$type":"NodeCanvas.Tasks.Conditions.IsPlayerTooCloseCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"minExploreTime":2.0,"maxExploreTime":5.0,"$type":"NodeCanvas.Tasks.Actions.RaccoonExplore"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Explore","_position":{"x":667.0,"y":333.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"minIdleTime":3.0,"maxIdleTime":6.0,"bodyRenderer":1,"$type":"NodeCanvas.Tasks.Actions.RaccoonIdleAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":931.0,"y":207.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"observeColor":{"r":0.9433962,"g":0.3507259,"b":0.1557494,"a":1.0},"bodyRenderer":1,"$type":"NodeCanvas.Tasks.Actions.RaccoonObserveAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Observe","_position":{"x":1023.0,"y":523.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"fleeDistance":25.0,"fleeSpeed":10.0,"safeDistance":18.0,"bodyRenderer":1,"$type":"NodeCanvas.Tasks.Actions.FleeAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Flee","_position":{"x":1316.207,"y":344.9712},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[{"bodyRenderer":1,"$type":"NodeCanvas.Tasks.Actions.RaccoonHideAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Hide","_position":{"x":1412.588,"y":196.2552},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Flee","_position":{"x":86.0,"y":318.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"detectionLayerMask":{"value":64},"detectionRadius":15.0,"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"$type":"NodeCanvas.Tasks.Actions.DetectAT"}]},"_position":{"x":402.0,"y":99.33312},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"$type":"NodeCanvas.Tasks.Conditions.IsDetectedCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"$type":"NodeCanvas.Tasks.Conditions.IsDetectedCT"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.IsDetectedCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"targetTransform":{"_name":"targetTransform","_targetVariableID":"182242d2-14ca-478d-831a-ccd6f4c08360"},"triggerDistance":10.0,"$type":"NodeCanvas.Tasks.Conditions.IsPlayerTooCloseCT"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
-  - {fileID: 8300000, guid: af81d8663ddfb39459ed8ff86d72e96a, type: 3}
   - {fileID: 2094703541}
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: -270, y: -6}
-    _zoomFactor: 0.75011945
+    _translation: {x: -213, y: 72}
+    _zoomFactor: 0.7500995
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
@@ -2814,3 +2897,4 @@ SceneRoots:
   - {fileID: 92100108}
   - {fileID: 2094703543}
   - {fileID: 675866939}
+  - {fileID: 322331945}

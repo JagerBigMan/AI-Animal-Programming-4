@@ -13,6 +13,8 @@ namespace NodeCanvas.Tasks.Actions {
 		public float minExploreTime = 5f;			//Random explore time
 		public float maxExploreTime = 10f;
 
+		public string soundName = "Explore";
+
 		private float exploreTimer;
 		private float exploreDuration;
 
@@ -30,6 +32,8 @@ namespace NodeCanvas.Tasks.Actions {
 
 		protected override void OnExecute()
 		{
+			AudioManager.Instance.StopAll();
+			AudioManager.Instance.PlaySound(soundName);
 			exploreTimer = 0f;
 			exploreDuration = Random.Range(minExploreTime, maxExploreTime);
 

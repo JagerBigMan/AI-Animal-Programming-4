@@ -12,7 +12,9 @@ namespace NodeCanvas.Tasks.Actions {
 		public Color observeColor = Color.gray;
 		public Renderer bodyRenderer;
 
-		private NavMeshAgent navAgent;
+        public string soundName = "Observe";
+
+        private NavMeshAgent navAgent;
 		private float originalSpeed;
 		private Color originalColor;
 		protected override string OnInit() {
@@ -20,7 +22,10 @@ namespace NodeCanvas.Tasks.Actions {
 			return null;
 		}
 		protected override void OnExecute() {
-			if (navAgent != null)
+            AudioManager.Instance.StopAll();
+            AudioManager.Instance.PlaySound(soundName);
+
+            if (navAgent != null)
 			{
 				originalSpeed = navAgent.speed;
 				navAgent.speed = 0f;

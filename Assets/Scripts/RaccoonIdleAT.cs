@@ -13,6 +13,8 @@ namespace NodeCanvas.Tasks.Actions
 
         public Color idleColor = Color.white;
 
+        public string soundName = "Idle";
+
         private float idleTimer;
         private float idleDuration;
 
@@ -32,6 +34,9 @@ namespace NodeCanvas.Tasks.Actions
 
         protected override void OnExecute()
         {                                   //Entering Idle
+            AudioManager.Instance.StopAll();
+            AudioManager.Instance.PlaySound(soundName);
+
             idleTimer = 0f;
             idleDuration = Random.Range(minIdleTime, maxIdleTime);
 

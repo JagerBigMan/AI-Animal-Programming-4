@@ -18,7 +18,9 @@ namespace NodeCanvas.Tasks.Actions {
 		public Color fleeColor = Color.red;
 		public Renderer bodyRenderer;
 
-		private float timeSinceLastHide;
+        public string soundName = "Flee";
+
+        private float timeSinceLastHide;
 		private NavMeshAgent navAgent;
 
 		private float originalSpeed;
@@ -30,7 +32,10 @@ namespace NodeCanvas.Tasks.Actions {
 		}
 
 		protected override void OnExecute() {
-			if(targetTransform.value == null)
+            AudioManager.Instance.StopAll();
+            AudioManager.Instance.PlaySound(soundName);
+            
+			if (targetTransform.value == null)
 			{
 				EndAction(false);
 				return;

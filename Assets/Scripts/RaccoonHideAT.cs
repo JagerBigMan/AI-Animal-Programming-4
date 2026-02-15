@@ -14,7 +14,9 @@ namespace NodeCanvas.Tasks.Actions {
 
 		public float hideDuration = 5f;
 
-		private Color originalColor;
+        public string soundName = "Hide";
+
+        private Color originalColor;
 		private float hideTimer;
 		private NavMeshAgent navAgent;
 		private bool originalStopped;
@@ -27,6 +29,9 @@ namespace NodeCanvas.Tasks.Actions {
 
 
 		protected override void OnExecute() {
+            AudioManager.Instance.StopAll();
+            AudioManager.Instance.PlaySound(soundName);
+            
 			hideTimer = 0f;
 			
 			if(navAgent != null)
