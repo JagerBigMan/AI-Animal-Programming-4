@@ -9,8 +9,8 @@ namespace NodeCanvas.Tasks.Actions {
 	public class FleeAT : ActionTask {
 
 		public BBParameter<Transform> targetTransform;
-		public float fleeDistance = 5f;
-		public float fleeFrequency = 0.5f;
+		public float fleeDistance = 12f;
+		public float fleeFrequency = 0.15f;
 		public float fleeSpeed = 6f;
 
 		public float safeDistance = 7f;
